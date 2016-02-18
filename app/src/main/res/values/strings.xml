@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LearnAndroid</string>
+    <string name="action_settings">Settings</string>
+
+    <array name="main_items">
+        <item>GSON</item>
+    </array>
+</resources>
