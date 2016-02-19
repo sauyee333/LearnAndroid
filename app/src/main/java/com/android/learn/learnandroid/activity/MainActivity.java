@@ -1,5 +1,6 @@
 package com.android.learn.learnandroid.activity;
 
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,11 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.android.learn.learnandroid.R;
-import com.android.learn.learnandroid.gson.MainFragment;
+import com.android.learn.learnandroid.fragment.GsonFragment;
+import com.android.learn.learnandroid.fragment.MainFragment;
 import com.android.learn.learnandroid.listener.OnListItemClickListener;
 
 public class MainActivity extends AppCompatActivity implements
     OnListItemClickListener {
+
+  private static final int TOPIC_OPTION_GSON = 0;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +67,14 @@ public class MainActivity extends AppCompatActivity implements
 
   @Override
   public void onListItemClick(int position) {
+    Fragment fragment = null;
+    switch (position) {
+    case TOPIC_OPTION_GSON:
+      fragment = new GsonFragment();
+      break;
+    }
 
+    getSupportFragmentManager().beginTransaction()
+        .replace(R.id.content, fragment).addToBackStack(null).commit();
   }
 }
