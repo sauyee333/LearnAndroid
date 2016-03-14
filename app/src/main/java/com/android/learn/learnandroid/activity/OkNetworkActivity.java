@@ -45,8 +45,7 @@ public class OkNetworkActivity extends Activity {
 
     Picasso picasso = new Picasso.Builder(OkNetworkActivity.this).downloader(
         new OkHttp3Downloader(mHttpClient)).build();
-    picasso.load("http://square.github.io/picasso/static/sample.png")
-        .placeholder(R.drawable.ic_updown).into(iv);
+    picasso.load("http://square.github.io/picasso/static/sample.png").into(iv);
 
     testHttpGet();
   }
