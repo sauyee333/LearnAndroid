@@ -3,6 +3,8 @@ package com.android.learn.learnandroid;
 import android.app.Application;
 
 import com.facebook.stetho.Stetho;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 public class MyApplication extends Application {
   public void onCreate() {
@@ -13,5 +15,10 @@ public class MyApplication extends Application {
         .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
         .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
         .build());
+
+    // Fabric.with(this, new Crashlytics());
+    final Fabric fabric = new Fabric.Builder(this).kits(new Crashlytics())
+        .debuggable(true).build();
+    Fabric.with(fabric);
   }
 }
