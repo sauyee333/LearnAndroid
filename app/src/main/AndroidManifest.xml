@@ -51,6 +51,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.ConnectSpeedActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="e651fd41dcc96e68ba85925a546c49deea5b9de1" />

@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.facebook.stetho.Stetho;
 import com.crashlytics.android.Crashlytics;
+import com.squareup.leakcanary.LeakCanary;
+
 import io.fabric.sdk.android.Fabric;
 
 public class MyApplication extends Application {
@@ -20,5 +22,7 @@ public class MyApplication extends Application {
     final Fabric fabric = new Fabric.Builder(this).kits(new Crashlytics())
         .debuggable(true).build();
     Fabric.with(fabric);
+
+    LeakCanary.install(this);
   }
 }
